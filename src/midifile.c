@@ -364,7 +364,7 @@ long size;
 			if ((pMF->ptr = (BYTE *)malloc(size)))
 				{
 				fseek(fp, 0L, SEEK_SET);
-				fread(pMF->ptr, sizeof(BYTE), size, fp);
+				(void)fread(pMF->ptr, sizeof(BYTE), size, fp);
 				/* Is this a valid MIDI file ? */
 				ptr = pMF->ptr;
 				if (*(ptr+0) == 'M' && *(ptr+1) == 'T' && 
@@ -444,7 +444,6 @@ int sz;
 BYTE *ptr;
 MIDI_END_POINT *pEndPoints;
 int num, i, mx_pts;
-BOOL bNoChanges = TRUE;
 
 	_VAR_CAST;
 	if (!IsFilePtrValid(pMF))				return FALSE;
@@ -498,7 +497,6 @@ BOOL bNoChanges = TRUE;
 			pMF->Track[iTrack].ptr = ptr;
 			
 			++i;
-			bNoChanges = FALSE;
 			}
 		}
 	
