@@ -21,6 +21,7 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <endian.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -78,9 +79,16 @@ typedef struct {
 /*
 ** Internal Functions
 */
+
 #define DT_DEF				32			/* assume maximum delta-time + msg is no more than 32 bytes */
+
+#if BYTE_ORDER == BIG_ENDIAN
+#define SWAP_WORD(w)		(w)
+#define SWAP_DWORD(d)	(d)
+#else
 #define SWAP_WORD(w)		(WORD)(((w)>>8)|((w)<<8))
-#define SWAP_DWORD(d)		(DWORD)((d)>>24)|(((d)>>8)&0xff00)|(((d)<<8)&0xff0000)|(((d)<<24))
+#define SWAP_DWORD(d)	(DWORD)((d)>>24)|(((d)>>8)&0xff00)|(((d)<<8)&0xff0000)|(((d)<<24))
+#endif
 
 #define _VAR_CAST				_MIDI_FILE *pMF = (_MIDI_FILE *)_pMF
 #define IsFilePtrValid(pMF)		(pMF)

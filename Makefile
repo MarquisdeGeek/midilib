@@ -5,23 +5,23 @@ LDFLAGS = -s
 
 all:	miditest   mozart   mfc120   mididump  m2rtttl
 
-miditest:   miditest.c   midifile.o	
-	$(CC) $(CFLAGS) $(LFLAGS) midifile.o miditest.c -o miditest 
+miditest:   src/miditest.c   src/midifile.o
+	$(CC) $(CFLAGS) $(LFLAGS) src/midifile.o src/miditest.c -o miditest
 
-mozart: mozmain.c   mozart.c   midifile.o	
-	$(CC) $(CFLAGS) $(LFLAGS) midifile.o mozart.c mozmain.c -o mozart 
+mozart: src/mozmain.c   src/mozart.c   src/midifile.o
+	$(CC) $(CFLAGS) $(LFLAGS) src/midifile.o src/mozart.c src/mozmain.c -o mozart
 
-mfc120: mfcmain.c   mfc120.c   midifile.o
-	$(CC) $(CFLAGS) $(LFLAGS) midifile.o mfc120.c mfcmain.c -o mfc120
+mfc120: src/mfcmain.c   src/mfc120.c   src/midifile.o
+	$(CC) $(CFLAGS) $(LFLAGS) src/midifile.o src/mfc120.c src/mfcmain.c -o mfc120
 
-mididump: mididump.c midiutil.o midifile.o
-	$(CC) $(CFLAGS) $(LFLAGS) midifile.o midiutil.o mididump.c -o mididump
+mididump: src/mididump.c src/midiutil.o src/midifile.o
+	$(CC) $(CFLAGS) $(LFLAGS) src/midifile.o src/midiutil.o src/mididump.c -o mididump
 
-m2rtttl: m2rtttl.c midifile.o midiutil.o
-	$(CC) $(CFLAGS) $(LFLAGS) midifile.o midiutil.o m2rtttl.c -o m2rtttl
+m2rtttl: src/m2rtttl.c src/midifile.o src/midiutil.o
+	$(CC) $(CFLAGS) $(LFLAGS) src/midifile.o src/midiutil.o src/m2rtttl.c -o m2rtttl
 
-midifile.o:	midifile.c	midifile.h
-midiutil.o:	midiutil.c	midiutil.h
+midifile.o:	src/midifile.c	src/midifile.h
+midiutil.o:	src/midiutil.c	src/midiutil.h
 
 
 install:

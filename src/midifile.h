@@ -1,6 +1,7 @@
 #ifndef _MIDIFILE_H
 #define _MIDIFILE_H
 
+#include <stdint.h>
 #include "midiinfo.h"		/* enumerations and constants for GM */
 
 /*
@@ -39,8 +40,8 @@
 ** Types because we're dealing with files, and need to be careful
 */
 typedef	unsigned char		BYTE;
-typedef	unsigned short		WORD;
-typedef	unsigned long		DWORD;
+typedef	uint16_t 		WORD;
+typedef	uint32_t 		DWORD;
 typedef int					BOOL;
 #ifndef TRUE
 #define TRUE	1
