@@ -59,7 +59,7 @@ int ev;
 			printf("# Track %d\n", i);
 			while(midiReadGetNextMessage(mf, i, &msg))
 				{
-				printf(" %.6ld ", msg.dwAbsPos);
+				printf(" %.6d ", msg.dwAbsPos);
 				if (msg.bImpliedMsg)
 					{ ev = msg.iImpliedMsg; }
 				else

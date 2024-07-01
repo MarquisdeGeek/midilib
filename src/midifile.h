@@ -129,7 +129,7 @@ typedef struct {
 										int				iSecs, iFrames,iFF;
 										} SMPTE;
 									struct {
-										tMIDI_KEYSIG	iKey;
+										int				iKey;
 										} KeySig;
 									struct {
 										int				iNom, iDenom;

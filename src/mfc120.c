@@ -37,7 +37,6 @@ BYTE bValidChannels[MAX_MIDI_TRACKS];
 BYTE bReadableChannels[MAX_MIDI_TRACKS];
 int l, tracks_left_to_process;
 DWORD src_song_pos;
-BOOL bWasLastBestMsgPriority;		/* ie sysex or meta-event */
 int curr_best_track=0; /* paranoia - shouldn't get used unless flush; which needs one track at least */
 DWORD curr_lowest_dt, dt;
 int pqn = 384;
@@ -71,7 +70,6 @@ int pqn = 384;
 				do
 					{
 					curr_lowest_dt = 0xffffffff;
-					bWasLastBestMsgPriority = FALSE;
 					/**/
 					for(l=0;l<MAX_MIDI_TRACKS;l++)		
 						if (bValidChannels[l])
@@ -97,9 +95,6 @@ int pqn = 384;
 									{
 									curr_lowest_dt = msg[l].dwAbsPos - src_song_pos;
 									curr_best_track = l;
-									/**/
-									if (msg[l].iType & msgSysMask)
-										bWasLastBestMsgPriority = TRUE;
 									}
 								}
 							}

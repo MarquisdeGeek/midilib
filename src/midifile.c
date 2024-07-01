@@ -82,7 +82,7 @@ typedef struct {
 
 #define DT_DEF				32			/* assume maximum delta-time + msg is no more than 32 bytes */
 
-#if BYTE_ORDER == BIG_ENDIAN
+#if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
 #define SWAP_WORD(w)		(w)
 #define SWAP_DWORD(d)	(d)
 #else
@@ -121,8 +121,8 @@ static BOOL _midiValidateTrack(const _MIDI_FILE *pMF, int iTrack)
 
 static BYTE *_midiWriteVarLen(BYTE *ptr, int n)
 {
-register long buffer;
-register long value=n;
+long buffer;
+long value=n;
 
 	buffer = value & 0x7f;
 	while ((value >>= 7) > 0)
@@ -929,8 +929,8 @@ int		midiTrackGetEndPos(MIDI_FILE *_pMF, int iTrack)
 */
 static BYTE *_midiReadVarLen(BYTE *ptr, DWORD *num)
 {
-register DWORD value;
-register BYTE c;
+DWORD value;
+BYTE c;
 
     if ((value = *ptr++) & 0x80)
 		{
