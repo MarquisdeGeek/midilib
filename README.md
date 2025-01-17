@@ -1,5 +1,5 @@
 Steev's MIDI Library
-Version 1.5, August 2010
+Version 1.6, August 2010
 
 
 Steven Goodwin (StevenGoodwin@gmail.com)
