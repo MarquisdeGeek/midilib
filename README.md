@@ -48,9 +48,11 @@ first, as it is the lowest common development denominator.
 Downloads and Links
 ===================
 
-http://www.bluedust.dontexist.com/midilib/midilib-1.4.tar.gz - the latest 
-version of the library
+https://marquisdegeek.com/pub/sources/midilib-1.6.tar.gz - the latest version of the library
 
-http://www.sgxengine.com - Featuring the "other" implementation of MIDIlib
+https://github.com/MarquisdeGeek/sml - The "other" implementation of MIDIlib, in JavaScript
+
+https://github.com/MarquisdeGeek/midi-live-performer - Live manipulation of MIDI data, also in JavaScript
+
 
 
